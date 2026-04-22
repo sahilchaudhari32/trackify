@@ -3,8 +3,11 @@
 💸 AI-powered personal finance tracking with auto-categorization, insights, and budget optimization.
 
 # 📸 Preview
-  <p align="center"> <img src="https://github.com/user-attachments/assets/311df25a-6d48-4716-ac2a-a0554cfdc8e3" width="260"/> <img src="https://github.com/user-attachments/assets/f881f789-649f-4d8d-80ff-848be79ee093" width="260"/> <img src="https://github.com/user-attachments/assets/c0142141-4807-4a88-9ac9-67462669a4db" width="260"/> </p> <p align="center"> <img src="https://github.com/user-attachments/assets/c96f4bdb-3852-4135-8b13-69e2ca436cd7" width="260"/> <img src="https://github.com/user-attachments/assets/fe928de7-40b4-450e-97bf-1e2d68c6e38a" width="260"/> </p>
-  
+  <p align="center"> <img width="260" alt="image" src="https://github.com/user-attachments/assets/7b2b101e-7dcb-4ddf-8145-d293ff5a6096" />  <img width="260" alt="image" src="https://github.com/user-attachments/assets/451668c6-652b-4708-abd1-b2cbd05a39e8" /> <img width="260" alt="image" src="https://github.com/user-attachments/assets/fe873c00-4241-4f24-a9f0-826797a8f0f1" />   <img width="260" alt="image" src="https://github.com/user-attachments/assets/d184b790-2ec7-4641-911a-10039871238c" />  <img width="260" alt="image" src="https://github.com/user-attachments/assets/f71d8ca5-0aa2-4910-a300-57ba0a2e1d30" /> </p>
+
+# Figma
+<p>https://www.figma.com/design/mL6dUy1LChEoxXhzQCWalK/Untitled?node-id=9-44&t=EM2xfK9bRmjCUucM-1</p>
+
 # 🧠 Overview
 
 Trackify is a modern personal finance tracking application that helps users:
