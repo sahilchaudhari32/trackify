@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Smartphone, Briefcase, Utensils } from 'lucide-react';
 import './TransactionList.css';
 
@@ -40,7 +41,7 @@ const TransactionList = () => {
     <div className="recent-activity-section">
       <div className="activity-header">
         <h3>Recent Transactions</h3>
-        <button className="see-all-btn">SEE ALL ACTIVITY</button>
+        <Link to="/transactions" className="see-all-btn">SEE ALL ACTIVITY</Link>
       </div>
 
       <div className="transaction-rows">

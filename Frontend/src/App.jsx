@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Dashboard from './pages/Dashboard';
+import Transactions from './pages/Transactions';
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <div className="main-content">
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/transactions" element={<Transactions />} />
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
