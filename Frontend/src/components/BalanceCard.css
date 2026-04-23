@@ -18,10 +18,12 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 0.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .greeting-text {
-  font-size: 3.5rem;
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -1px;
 }
@@ -31,6 +33,7 @@
   background: #1c1d1f;
   padding: 4px;
   border-radius: 12px;
+  flex-shrink: 0;
 }
 
 .time-btn {
@@ -56,7 +59,7 @@
 .balance-card-v2 {
   background-color: var(--bg-card);
   border-radius: 20px;
-  padding: 2rem;
+  padding: clamp(1.25rem, 2vw, 2rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -79,14 +82,16 @@
   gap: 4px;
   font-size: 0.8rem;
   font-weight: 600;
+  flex-shrink: 0;
 }
 
 .main-balance {
-  font-size: 5.5rem;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
   font-weight: 800;
   letter-spacing: -3px;
   margin: 1.5rem 0 2.5rem 0;
   color: var(--text-white);
+  word-break: break-word;
 }
 
 .sub-stats-grid {
@@ -112,14 +117,13 @@
 .sub-value {
   color: var(--brand-teal);
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: clamp(0.85rem, 1.2vw, 1.1rem);
 }
 
-/* AI Insight Card */
 .ai-insight-card {
-  background-color: #0ea5e9; /* Teal blue color matching image */
+  background-color: #0ea5e9;
   border-radius: 20px;
-  padding: 2rem;
+  padding: clamp(1.25rem, 2vw, 2rem);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -139,7 +143,7 @@
 }
 
 .insight-text {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-weight: 600;
   margin-bottom: 1rem;
   line-height: 1.4;
@@ -171,4 +175,35 @@
   font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 1px;
+}
+
+@media (max-width: 1024px) {
+  .cards-main-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .sub-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .main-balance {
+    margin: 1rem 0 1.5rem 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .greeting-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .time-btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.75rem;
+  }
+
+  .main-balance {
+    letter-spacing: -1px;
+  }
 }

@@ -1,90 +1,58 @@
 .transactions-page {
-  padding: 2rem 5rem;
+  padding: 2rem var(--page-padding);
   width: 100%;
 }
 
-.page-header {
-  margin-bottom: 3rem;
-}
+.page-header { margin-bottom: 3rem; }
 
 .page-title {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 0.25rem;
 }
 
-.page-subtitle {
-  color: var(--text-gray);
-  letter-spacing: 0.1em;
-}
+.page-subtitle { color: var(--text-gray); letter-spacing: 0.1em; }
 
 .transactions-grid {
   display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 3rem;
+  grid-template-columns: 1fr clamp(280px, 30%, 380px);
+  gap: clamp(1.5rem, 3vw, 3rem);
 }
 
-.section-group {
-  margin-bottom: 4rem;
-}
-
-.section-header {
-  margin-bottom: 1.5rem;
-}
-
-.section-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-white);
-}
+.section-group { margin-bottom: 4rem; }
+.section-header { margin-bottom: 1.5rem; }
+.section-title { font-size: 1.5rem; font-weight: 600; color: var(--text-white); }
 
 .badge-outline {
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.7rem; font-weight: 700;
   padding: 0.25rem 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   color: var(--text-gray);
 }
 
-/* Pending Card */
 .pending-empty-card {
   background: var(--bg-card);
   height: 220px;
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.empty-content {
-  text-align: center;
-  color: var(--text-dim);
-}
+.empty-content { text-align: center; color: var(--text-dim); }
+.empty-icon { margin-bottom: 1rem; opacity: 0.3; }
 
-.empty-icon {
-  margin-bottom: 1rem;
-  opacity: 0.3;
-}
-
-/* Transaction List */
-.transaction-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
+.transaction-list { display: flex; flex-direction: column; gap: 0.75rem; }
 
 .transaction-item {
   background: var(--bg-card);
   padding: 1.25rem;
   border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.03);
   transition: all 0.3s ease;
+  gap: 1rem;
 }
 
 .transaction-item:hover {
@@ -93,284 +61,118 @@
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-.tx-left {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
+.tx-left { display: flex; align-items: center; gap: 1.25rem; min-width: 0; }
 
 .tx-icon-wrapper {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 48px; height: 48px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
   background: rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
 }
 
-.tx-avatar {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-}
+.tx-avatar { width: 100%; height: 100%; border-radius: 8px; object-fit: cover; }
+.tx-info { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
+.tx-name-row { display: flex; align-items: center; gap: 0.5rem; }
+.tx-status-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.tx-name { font-size: 1.1rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tx-details { font-size: 0.85rem; color: var(--text-gray); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tx-right { text-align: right; flex-shrink: 0; }
+.tx-amount { display: block; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem; }
+.tx-amount.income { color: var(--brand-teal); }
+.tx-bank { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
 
-.tx-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.tx-name-row {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.tx-status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-
-.tx-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.tx-details {
-  font-size: 0.85rem;
-  color: var(--text-gray);
-}
-
-.tx-right {
-  text-align: right;
-}
-
-.tx-amount {
-  display: block;
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-
-.tx-amount.income {
-  color: var(--brand-teal);
-}
-
-.tx-bank {
-  font-size: 0.75rem;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* Sidebar Styles */
-.sidebar-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
+.sidebar-col { display: flex; flex-direction: column; gap: 1.5rem; }
 
 .balance-card-glass {
   background: linear-gradient(135deg, rgba(25, 212, 168, 0.1) 0%, rgba(24, 25, 27, 1) 100%);
-  padding: 2rem;
+  padding: clamp(1.25rem, 2vw, 2rem);
   border-radius: 20px;
   border: 1px solid rgba(25, 212, 168, 0.3);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .balance-amount {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
   margin: 0.75rem 0 1.5rem 0;
 }
 
-.balance-progress-container {
-  margin-top: 1rem;
-}
+.balance-progress-container { margin-top: 1rem; }
 
 .progress-bar {
-  height: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-  margin-bottom: 1rem;
-  overflow: hidden;
+  height: 6px; background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px; margin-bottom: 1rem; overflow: hidden;
 }
 
-.progress-fill {
-  height: 100%;
-  background: var(--brand-teal);
-  border-radius: 3px;
-}
+.progress-fill { height: 100%; background: var(--brand-teal); border-radius: 3px; }
+.progress-labels { display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 600; }
+.income-label { color: var(--brand-teal); }
+.expense-label { color: var(--text-gray); }
 
-.progress-labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.income-label {
-  color: var(--brand-teal);
-}
-
-.expense-label {
-  color: var(--text-gray);
-}
-
-.stats-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
+.stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
 .stat-card {
   background: var(--bg-card);
-  padding: 1.5rem;
-  border-radius: 16px;
+  padding: 1.5rem; border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
-  overflow: hidden;
+  position: relative; overflow: hidden;
 }
 
-.stat-icon {
-  margin-bottom: 1rem;
-  color: var(--text-dim);
-}
-
-.stat-value {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-top: 0.5rem;
-}
+.stat-icon { margin-bottom: 1rem; color: var(--text-dim); }
+.stat-value { font-size: 1.5rem; font-weight: 700; margin-top: 0.5rem; }
 
 .health-card {
   background: var(--bg-card);
-  padding: 2rem;
+  padding: clamp(1.25rem, 2vw, 2rem);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
-  overflow: hidden;
+  position: relative; overflow: hidden;
 }
 
-.health-content {
-  position: relative;
-  z-index: 2;
-}
-
-.health-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.health-desc {
-  font-size: 0.9rem;
-  color: var(--text-gray);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  max-width: 80%;
-}
+.health-content { position: relative; z-index: 2; }
+.health-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; }
+.health-desc { font-size: 0.9rem; color: var(--text-gray); line-height: 1.6; margin-bottom: 1.5rem; max-width: 80%; }
 
 .view-report-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--brand-teal);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  display: flex; align-items: center; gap: 0.5rem;
+  color: var(--brand-teal); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
   transition: gap 0.3s ease;
 }
 
-.view-report-btn:hover {
-  gap: 0.75rem;
-}
+.view-report-btn:hover { gap: 0.75rem; }
+.health-bg-icon { position: absolute; right: -10px; bottom: -10px; z-index: 1; }
 
-.health-bg-icon {
-  position: absolute;
-  right: -10px;
-  bottom: -10px;
-  z-index: 1;
-}
-
-/* Footer */
 .page-footer {
-  margin-top: 6rem;
-  padding-top: 2rem;
+  margin-top: 6rem; padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
 }
 
-.footer-links {
-  display: flex;
-  gap: 2rem;
-}
+.footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
 
 .footer-links a {
-  text-decoration: none;
-  color: var(--text-dim);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  text-decoration: none; color: var(--text-dim);
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em;
   transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
-  color: var(--text-white);
-}
+.footer-links a:hover { color: var(--text-white); }
+.copyright { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.05em; }
 
-.copyright {
-  font-size: 0.75rem;
-  color: var(--text-dim);
-  letter-spacing: 0.05em;
-}
-
-/* Responsive */
 @media (max-width: 1200px) {
-  .transactions-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .sidebar-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-  
-  .balance-card-wrapper {
-    grid-column: span 2;
-  }
-  
-  .health-card {
-    grid-column: span 2;
-  }
+  .transactions-grid { grid-template-columns: 1fr; }
+  .sidebar-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .balance-card-wrapper { grid-column: span 2; }
+  .health-card { grid-column: span 2; }
 }
 
 @media (max-width: 768px) {
-  .transactions-page {
-    padding: 2rem;
-  }
-  
-  .page-title {
-    font-size: 2.5rem;
-  }
-  
-  .sidebar-col {
-    grid-template-columns: 1fr;
-  }
-  
-  .balance-card-wrapper, .health-card, .stats-row {
-    grid-column: span 1;
-  }
-  
-  .page-footer {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-  }
+  .page-title { font-size: 2.5rem; }
+  .sidebar-col { grid-template-columns: 1fr; }
+  .balance-card-wrapper, .health-card, .stats-row { grid-column: span 1; }
+  .page-footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+  .footer-links { justify-content: center; }
+  .tx-name { font-size: 0.95rem; }
+  .tx-amount { font-size: 1.05rem; }
 }

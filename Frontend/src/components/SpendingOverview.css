@@ -1,7 +1,7 @@
 .spending-overview-card {
   background-color: var(--bg-card);
   border-radius: 20px;
-  padding: 2rem;
+  padding: clamp(1.25rem, 2vw, 2rem);
   margin-top: 1.5rem;
 }
 
@@ -10,12 +10,15 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .title-group {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .title-group h3 {
@@ -46,6 +49,7 @@
 .legend-group {
   display: flex;
   gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .legend-item {
@@ -70,8 +74,8 @@
 .chart-container-v2 {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 1.5rem;
-  height: 350px;
+  gap: clamp(0.5rem, 1.5vw, 1.5rem);
+  height: clamp(200px, 30vw, 350px);
   align-items: flex-end;
 }
 
@@ -114,4 +118,20 @@
   font-size: 0.7rem;
   font-weight: 700;
   color: var(--text-dim);
+}
+
+@media (max-width: 768px) {
+  .overview-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  .bar-column {
+    gap: 0.5rem;
+  }
+
+  .day-label {
+    font-size: 0.6rem;
+  }
 }

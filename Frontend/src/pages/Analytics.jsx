@@ -16,12 +16,10 @@ import './Analytics.css';
 const Analytics = () => {
   const [loading, setLoading] = useState(true);
   const [timeframe, setTimeframe] = useState('Weekly');
-
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timer);
   }, []);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -31,7 +29,6 @@ const Analytics = () => {
       }
     }
   };
-
   const itemVariants = {
     hidden: { opacity: 0, y: 40, rotateX: 15, scale: 0.95 },
     visible: { 
@@ -45,7 +42,6 @@ const Analytics = () => {
       }
     }
   };
-
   if (loading) {
     return (
       <div className="loading-overlay">
@@ -55,7 +51,6 @@ const Analytics = () => {
       </div>
     );
   }
-
   return (
     <motion.div 
       className="dashboard-container analytics-container"
@@ -63,13 +58,11 @@ const Analytics = () => {
       initial="hidden"
       animate="visible"
     >
-      {/* Page Header */}
       <motion.div className="analytics-header" variants={itemVariants}>
         <div className="analytics-title-group">
           <span className="terminal-label">PRIVATE WEALTH TERMINAL</span>
           <h1 className="analytics-title">Financial Insights</h1>
         </div>
-        
         <div className="toggle-group">
           <button 
             className={`toggle-btn ${timeframe === 'Weekly' ? 'active' : ''}`}
@@ -85,10 +78,7 @@ const Analytics = () => {
           </button>
         </div>
       </motion.div>
-
-      {/* Main Grid */}
       <div className="analytics-grid">
-        {/* Net Worth Velocity Card */}
         <motion.div variants={itemVariants}>
           <TiltCard className="h-full">
             <div className="glass-card velocity-card">
@@ -104,7 +94,6 @@ const Analytics = () => {
                   +12.4%
                 </div>
               </div>
-
               <div className="chart-bg">
                 {[40, 65, 35, 85, 55, 75, 45].map((height, i) => (
                   <motion.div 
@@ -121,13 +110,10 @@ const Analytics = () => {
             </div>
           </TiltCard>
         </motion.div>
-
-        {/* Allocation Card */}
         <motion.div variants={itemVariants}>
           <TiltCard className="h-full">
             <div className="glass-card allocation-card">
               <h2>Allocation</h2>
-              
               <div className="donut-container">
                 <svg width="200" height="200" viewBox="0 0 100 100">
                   <circle 
@@ -166,7 +152,6 @@ const Analytics = () => {
                   <h4>30%</h4>
                 </div>
               </div>
-
               <div className="legend">
                 <div className="legend-item">
                   <div className="legend-left">
@@ -194,11 +179,8 @@ const Analytics = () => {
           </TiltCard>
         </motion.div>
       </div>
-
-      {/* Bottom Grid */}
       <div className="bottom-grid">
         <div className="left-stack">
-          {/* Salary Credit Card */}
           <motion.div variants={itemVariants}>
             <TiltCard>
               <div className="glass-card insight-card-small">
@@ -217,8 +199,6 @@ const Analytics = () => {
               </div>
             </TiltCard>
           </motion.div>
-
-          {/* Luxury Retails Card */}
           <motion.div variants={itemVariants}>
             <TiltCard>
               <div className="glass-card insight-card-small" style={{ borderLeft: '3px solid var(--brand-rose)' }}>
@@ -238,8 +218,6 @@ const Analytics = () => {
             </TiltCard>
           </motion.div>
         </div>
-
-        {/* Intelligence Report Card */}
         <motion.div variants={itemVariants}>
           <TiltCard className="h-full">
             <div className="glass-card intelligence-card">
@@ -247,13 +225,11 @@ const Analytics = () => {
                 <Sparkles size={20} className="text-cyan" style={{ color: 'var(--brand-teal)' }} />
                 <h2>Intelligence Report</h2>
               </div>
-
               <div className="report-content">
                 <div className="report-text">
                   <p>
                     Your spending in <b>Dining Out</b> has decreased by <span className="highlight">18%</span> compared to last week. This trajectory puts you on track to save an extra ₹12,000 this month.
                   </p>
-                  
                   <div className="stat-row">
                     <div className="mini-stat">
                       <label>Savings Potential</label>
@@ -265,7 +241,6 @@ const Analytics = () => {
                     </div>
                   </div>
                 </div>
-
                 <div className="outlook-card">
                   <div className="outlook-icon">
                     <Search size={20} />
@@ -281,15 +256,12 @@ const Analytics = () => {
           </TiltCard>
         </motion.div>
       </div>
-      
-      {/* Footer */}
       <motion.footer 
         className="analytics-footer" 
         variants={itemVariants}
-        style={{ marginTop: '4rem', padding: '2rem 0', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '0.1em' }}
       >
         <span>© 2024 TRACKIFY ELITE. ALL RIGHTS RESERVED.</span>
-        <div style={{ display: 'flex', gap: '2rem' }}>
+        <div className="footer-links-inline">
           <span>Privacy Policy</span>
           <span>Terms of Service</span>
           <span>Security</span>
@@ -299,5 +271,4 @@ const Analytics = () => {
     </motion.div>
   );
 };
-
 export default Analytics;

@@ -2,20 +2,19 @@
   padding-top: 2rem;
   perspective: 2000px;
 }
-
 .analytics-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
-
 .analytics-title-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-
 .terminal-label {
   font-size: 0.7rem;
   font-weight: 600;
@@ -23,23 +22,21 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-
 .analytics-title {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   margin: 0;
   color: var(--text-white);
 }
-
 .toggle-group {
   display: flex;
   background: rgba(255, 255, 255, 0.05);
   padding: 0.25rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
 }
-
 .toggle-btn {
   padding: 0.6rem 1.2rem;
   border-radius: 10px;
@@ -48,83 +45,62 @@
   color: var(--text-gray);
   transition: all 0.3s ease;
 }
-
 .toggle-btn.active {
   background: rgba(255, 255, 255, 0.1);
   color: var(--text-white);
 }
-
-/* Grid Layout */
 .analytics-grid {
   display: grid;
   grid-template-columns: 1.8fr 1fr;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
 }
-
 .h-full {
   height: 100%;
 }
-
 .bottom-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 1.5rem;
 }
-
 .left-stack {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
-
-/* Glass Card */
-.glass-card {
-  background: rgba(24, 25, 27, 0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 24px;
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-}
-
-/* Net Worth Velocity */
 .velocity-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 520px;
+  min-height: clamp(320px, 40vw, 520px);
+  padding: clamp(1.25rem, 2vw, 2rem);
 }
-
 .velocity-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   z-index: 2;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
-
 .velocity-info h3 {
   font-size: 0.9rem;
   font-weight: 400;
   color: var(--text-gray);
   margin-bottom: 0.5rem;
 }
-
 .velocity-amount {
-  font-size: 3.5rem;
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
   font-weight: 700;
   color: var(--text-white);
   display: flex;
   align-items: baseline;
+  word-break: break-word;
 }
-
 .velocity-amount span {
-  font-size: 1.5rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.5rem);
   opacity: 0.5;
 }
-
 .growth-badge {
   background: rgba(25, 212, 168, 0.1);
   color: var(--brand-teal);
@@ -135,8 +111,8 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  flex-shrink: 0;
 }
-
 .chart-bg {
   position: absolute;
   bottom: 0;
@@ -146,17 +122,15 @@
   z-index: 1;
   display: flex;
   align-items: flex-end;
-  gap: 1rem;
-  padding: 0 2rem;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  padding: 0 clamp(1rem, 2vw, 2rem);
 }
-
 .bar-column {
   flex: 1;
   background: linear-gradient(180deg, rgba(25, 212, 168, 0.15) 0%, rgba(25, 212, 168, 0) 100%);
   border-radius: 8px 8px 0 0;
   transition: all 0.5s ease;
 }
-
 .bar-label {
   position: absolute;
   bottom: -2rem;
@@ -166,53 +140,51 @@
   color: var(--text-dim);
   text-transform: uppercase;
 }
-
-/* Allocation Card */
+.allocation-card {
+  padding: clamp(1.25rem, 2vw, 2rem);
+}
 .allocation-card h2 {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 2rem;
 }
-
 .donut-container {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: clamp(140px, 20vw, 200px);
+  height: clamp(140px, 20vw, 200px);
   margin: 0 auto 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.donut-container svg {
+  width: 100%;
+  height: 100%;
+}
 .donut-info {
   position: absolute;
   text-align: center;
 }
-
 .donut-info span {
   font-size: 0.65rem;
   color: var(--text-gray);
   text-transform: uppercase;
   display: block;
 }
-
 .donut-info h4 {
   font-size: 1.5rem;
   font-weight: 700;
 }
-
 .legend {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-
 .legend-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .legend-left {
   display: flex;
   align-items: center;
@@ -220,36 +192,30 @@
   font-size: 0.85rem;
   color: var(--text-gray);
 }
-
 .dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
-
 .legend-right {
   font-weight: 600;
   font-size: 0.9rem;
 }
-
 .no-insights {
   color: var(--text-dim);
   font-size: 0.75rem;
   font-style: italic;
 }
-
-/* Insight Small Cards */
 .insight-card-small {
   padding: 1.5rem;
 }
-
 .insight-header {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
-
 .icon-box {
   width: 40px;
   height: 40px;
@@ -257,78 +223,69 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 }
-
 .insight-meta h4 {
   font-size: 0.95rem;
   margin-bottom: 0.2rem;
 }
-
 .insight-meta p {
   font-size: 0.75rem;
   color: var(--text-dim);
 }
-
 .insight-amount {
-  font-size: 1.8rem;
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
   font-weight: 700;
 }
-
-/* Intelligence Report */
 .intelligence-card {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding: clamp(1.25rem, 2vw, 2rem);
 }
-
 .report-header {
   display: flex;
   align-items: center;
   gap: 0.8rem;
 }
-
 .report-header h2 {
   font-size: 1.1rem;
   font-weight: 600;
 }
-
 .report-content {
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
 }
-
 .report-text {
   flex: 1;
+  min-width: 200px;
 }
-
 .report-text p {
   color: var(--text-gray);
   line-height: 1.6;
   font-size: 0.95rem;
   margin-bottom: 2rem;
 }
-
 .report-text p b {
   color: var(--text-white);
 }
-
 .report-text p span.highlight {
   color: var(--brand-teal);
   font-weight: 600;
 }
-
 .stat-row {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
-
 .mini-stat {
   background: rgba(255, 255, 255, 0.03);
   padding: 1rem 1.5rem;
   border-radius: 16px;
   flex: 1;
+  min-width: 120px;
 }
-
 .mini-stat label {
   font-size: 0.65rem;
   color: var(--text-dim);
@@ -336,28 +293,24 @@
   display: block;
   margin-bottom: 0.4rem;
 }
-
 .mini-stat span {
   font-size: 1.1rem;
   font-weight: 700;
 }
-
 .mini-stat span.teal { color: var(--brand-teal); }
 .mini-stat span.rose { color: var(--brand-rose); }
-
-/* Outlook Card */
 .outlook-card {
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 20px;
-  padding: 2rem;
+  padding: clamp(1.25rem, 2vw, 2rem);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 1rem;
 }
-
 .outlook-icon {
   width: 50px;
   height: 50px;
@@ -369,18 +322,15 @@
   color: var(--text-gray);
   margin-bottom: 0.5rem;
 }
-
 .outlook-card h3 {
   font-size: 0.95rem;
   font-weight: 600;
 }
-
 .outlook-card p {
   font-size: 0.75rem;
   color: var(--text-dim);
   line-height: 1.4;
 }
-
 .connect-link {
   color: var(--brand-teal);
   font-size: 0.85rem;
@@ -391,8 +341,6 @@
   margin-top: 1rem;
   cursor: pointer;
 }
-
-/* Loading Animation */
 .loading-overlay {
   position: fixed;
   inset: 0;
@@ -402,7 +350,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .loader-line {
   width: 200px;
   height: 2px;
@@ -410,7 +357,6 @@
   position: relative;
   overflow: hidden;
 }
-
 .loader-progress {
   position: absolute;
   top: 0;
@@ -420,17 +366,50 @@
   width: 50%;
   animation: progressMove 1.5s infinite ease-in-out;
 }
-
 @keyframes progressMove {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(200%); }
 }
-
+.analytics-footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.analytics-footer .footer-links-inline {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
 @media (max-width: 1200px) {
   .analytics-grid, .bottom-grid {
     grid-template-columns: 1fr;
   }
   .outlook-card {
-    width: 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .analytics-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .report-content {
+    flex-direction: column;
+  }
+  .analytics-footer {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .analytics-footer .footer-links-inline {
+    justify-content: center;
   }
 }

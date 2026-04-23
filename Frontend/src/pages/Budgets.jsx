@@ -40,7 +40,6 @@ const Budgets = () => {
       textColor: 'text-green'
     }
   ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -50,7 +49,6 @@ const Budgets = () => {
       }
     }
   };
-
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -59,7 +57,6 @@ const Budgets = () => {
       transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
     }
   };
-
   return (
     <div className="budgets-root">
       <motion.div 
@@ -75,7 +72,6 @@ const Budgets = () => {
               <h2>Budget Canvas.</h2>
             </div>
           </motion.header>
-
           <div className="budget-cards-list">
             {budgetData.map((budget) => (
               <motion.div key={budget.id} variants={itemVariants}>
@@ -98,7 +94,6 @@ const Budgets = () => {
                         <span className={`status-label ${budget.textColor}`}>{budget.status}</span>
                       </div>
                     </div>
-
                     <div className="progress-container">
                       <motion.div 
                         className={`progress-fill ${budget.color}`}
@@ -107,7 +102,6 @@ const Budgets = () => {
                         transition={{ duration: 1.5, delay: 0.5, ease: "circOut" }}
                       />
                     </div>
-
                     <div className="card-bottom">
                       <span>SPENT: {((budget.spent / budget.total) * 100).toFixed(1)}%</span>
                       <span>
@@ -122,7 +116,6 @@ const Budgets = () => {
             ))}
           </div>
         </div>
-
         <aside className="budgets-sidebar">
           <motion.div variants={itemVariants} className="limit-card">
             <span className="text-label">TOTAL MONTHLY LIMIT</span>
@@ -131,7 +124,6 @@ const Budgets = () => {
               <span className="pill-green">↑ 12% vs last month</span>
             </div>
           </motion.div>
-
           <motion.div variants={itemVariants}>
             <TiltCard>
               <div className="sidebar-widget">
@@ -146,7 +138,6 @@ const Budgets = () => {
               </div>
             </TiltCard>
           </motion.div>
-
           <motion.div variants={itemVariants}>
             <TiltCard>
               <div className="sidebar-widget smart-forecast">
@@ -162,7 +153,6 @@ const Budgets = () => {
               </div>
             </TiltCard>
           </motion.div>
-
           <motion.div variants={itemVariants}>
             <TiltCard>
               <div className="sidebar-widget saving-opportunity">
@@ -179,16 +169,14 @@ const Budgets = () => {
           </motion.div>
         </aside>
       </motion.div>
-
       <motion.footer 
-        className="flex-between" 
-        style={{ marginTop: '5rem', padding: '2rem 5rem', borderTop: '1px solid rgba(255,255,255,0.05)', fontSize: '0.7rem', color: 'var(--text-dim)', letterSpacing: '0.1em' }}
+        className="budgets-footer" 
         variants={itemVariants}
         initial="hidden"
         animate="visible"
       >
         <span>© 2024 TRACKIFY ELITE. ALL RIGHTS RESERVED.</span>
-        <div style={{ display: 'flex', gap: '2rem' }}>
+        <div className="footer-links-inline">
           <span>PRIVACY POLICY</span>
           <span>TERMS OF SERVICE</span>
           <span>SECURITY</span>
@@ -198,5 +186,4 @@ const Budgets = () => {
     </div>
   );
 };
-
 export default Budgets;

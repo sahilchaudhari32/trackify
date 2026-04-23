@@ -39,8 +39,6 @@ const Header = () => {
               onMouseLeave={() => setHoveredPath(null)}
             >
               <span className="nav-text">{item.name}</span>
-              
-              {/* Active Indicator (Underline/Pill) */}
               {location.pathname === item.path && (
                 <motion.div
                   layoutId="nav-pill"
@@ -49,7 +47,6 @@ const Header = () => {
                 />
               )}
 
-              {/* Hover Indicator */}
               <AnimatePresence>
                 {hoveredPath === item.path && location.pathname !== item.path && (
                   <motion.div
@@ -68,7 +65,11 @@ const Header = () => {
 
         <div className="header-right">
           <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="icon-action"><Bell size={20} /></motion.button>
-          <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="icon-action"><Settings size={20} /></motion.button>
+          <NavLink to="/settings" className={({ isActive }) => `icon-action ${isActive ? 'active' : ''}`}>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <Settings size={20} />
+            </motion.div>
+          </NavLink>
           <motion.div whileHover={{ scale: 1.1 }} className="user-avatar-small">
             <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sahil" alt="User" />
           </motion.div>
