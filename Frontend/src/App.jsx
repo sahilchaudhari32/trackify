@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
+import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
 import Transactions from './pages/Transactions';
 import Budgets from './pages/Budgets';
@@ -12,18 +13,15 @@ function App() {
   return (
     <Router>
       <div className="app-root">
-        <Header />
-        <div className="main-content">
-          <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/transactions" element={<Transactions />} />
-            <Route path="/budgets" element={<Budgets />} />
-            <Route path="/analytics" element={<Analytics />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/" element={<Navigate to="/dashboard" replace />} />
-            <Route path="*" element={<Navigate to="/dashboard" replace />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/dashboard" element={<><Header /><div className="main-content"><Dashboard /></div></>} />
+          <Route path="/transactions" element={<><Header /><div className="main-content"><Transactions /></div></>} />
+          <Route path="/budgets" element={<><Header /><div className="main-content"><Budgets /></div></>} />
+          <Route path="/analytics" element={<><Header /><div className="main-content"><Analytics /></div></>} />
+          <Route path="/settings" element={<><Header /><div className="main-content"><Settings /></div></>} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </div>
     </Router>
   );
