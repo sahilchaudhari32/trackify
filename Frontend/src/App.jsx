@@ -5,7 +5,6 @@ import Dashboard from './pages/Dashboard';
 import Transactions from './pages/Transactions';
 import Budgets from './pages/Budgets';
 import Analytics from './pages/Analytics';
-import Settings from './pages/Settings';
 import './App.css';
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/budgets" element={<Budgets />} />
             <Route path="/analytics" element={<Analytics />} />
-            <Route path="/settings" element={<Settings />} />
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
